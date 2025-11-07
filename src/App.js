@@ -6,9 +6,7 @@ import "./styles.css";
 function ImageWithCaption({ placeholderText, caption, imageNumber }) {
   return (
     <div className="image-container">
-      <div className="placeholder-img">
-        <span>{placeholderText}</span>
-      </div>
+      <img src={placeholderText} alt={caption} className="tutorial-image" />
       <div className="caption-box">
         <span>{caption}</span>
         <span>Imagem {imageNumber} de 1</span>
@@ -18,7 +16,6 @@ function ImageWithCaption({ placeholderText, caption, imageNumber }) {
 }
 
 // --- Componente 2: Caixa de Nota ---
-// (Sem alterações)
 function NoteBox({ children }) {
   return (
     <div className="note-box">
@@ -28,31 +25,29 @@ function NoteBox({ children }) {
 }
 
 // --- DADOS PARA O CARROSSEL ---
-// (Definindo os dados aqui para clareza)
 const stepsGerarVenda = [
   {
     icon: "📝",
     title: "1. Cadastro do Cliente",
-    description:
-      "Certifique-se de que o cadastro do cliente na venda esteja completo. É essencial que contenha CPF ou CNPJ e o endereço completo, especialmente o CEP.",
-    imgPlaceholder: "[Imagem: Tela de cadastro do cliente]",
+    description: "Certifique-se de que...",
+    // CORRIGIDO: Sem "public/" e com o nome novo (sem espaços)
+    imgPlaceholder: "/images/venda par1.png",
     caption: "Tela de cadastro do cliente com CPF/CNPJ e endereço completo",
     note: "O cadastro incompleto pode gerar erros na emissão do boleto.",
   },
   {
     icon: "🛒",
     title: "2. Lançamento dos Produtos",
-    description: "Insira os produtos ou serviços na venda como de costume.",
-    imgPlaceholder: "[Imagem: Tela de lançamento de produtos]",
+    description: "Insira os produtos...",
+    imgPlaceholder: "./images/venda par2.png",
     caption: "Interface de lançamento de produtos na venda",
     note: null,
   },
   {
     icon: "💳",
     title: "3. Finalização e Forma de Pagamento",
-    description:
-      'Clique em "FINALIZA" (ou F12). Na tela de Formas de Pagamento, selecione a opção "A PRAZO" e defina a situação como "PRESTAÇÃO-BO".',
-    imgPlaceholder: "[Imagem: Tela de finalização da venda]",
+    description: 'Clique em "FINALIZA" (ou F12)...',
+    imgPlaceholder: "/images/venda par3.png",
     caption:
       'Seleção da forma de pagamento "A PRAZO" e situação "PRESTAÇÃO-BO"',
     note: null,
@@ -60,9 +55,8 @@ const stepsGerarVenda = [
   {
     icon: "📄",
     title: "4. Confirmação e Impressão",
-    description:
-      'Na tela "GERAR BOLETOS", clique em "OK". Você poderá escolher entre "Sim" para gerar o PDF imediatamente ou "Não" para apenas registrar o boleto no sistema e enviá-lo depois.',
-    imgPlaceholder: '[Imagem: Tela "Gerar Boletos"]',
+    description: 'Na tela "GERAR BOLETOS", clique em "OK"...',
+    imgPlaceholder: "/images/venda par4.png",
     caption: "Tela de confirmação para geração de boletos",
     note: "Importante: Após gerar o boleto, é fundamental criar e enviar o arquivo de remessa ao banco.",
   },

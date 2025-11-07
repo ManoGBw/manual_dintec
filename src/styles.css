@@ -314,3 +314,8 @@ body {
   border-color: #e0e0e0;
   cursor: not-allowed;
 }
+
+.tutorial-image {
+  width: 100%;
+  display: block;
+}
