@@ -34,7 +34,6 @@ body {
   font-size: 1.5em;
   margin-bottom: 24px;
   padding-bottom: 16px;
-  /* (Mantive a borda laranja do tema anterior, pois não está visível no print) */
   border-bottom: 1px solid #ff5722;
 }
 
@@ -61,11 +60,10 @@ body {
   color: #fff;
 }
 
-/* --- **MUDANÇA**: Estilo do Item Ativo (Sidebar) --- */
 .sidebar nav a.active {
-  background-color: #5a6b7d; /* <- NOVO: Cinza-azulado da imagem */
+  background-color: #5a6b7d;
   color: #ffffff;
-  font-weight: 500; /* <- NOVO: Revertido de 700 */
+  font-weight: 500;
 }
 
 /* --- Estilos do Submenu (Boletos) --- */
@@ -110,13 +108,12 @@ body {
   background-color: #ffffff;
 }
 
-/* --- **MUDANÇA**: Borda do H1 --- */
 .main-content h1 {
   font-size: 2.2em;
   color: #0b0f19;
   margin-bottom: 16px;
   padding-bottom: 16px;
-  border-bottom: 2px solid #e0e0e0; /* <- NOVO: Borda cinza clara da imagem */
+  border-bottom: 2px solid #e0e0e0;
 }
 
 .main-content h2 {
@@ -133,7 +130,7 @@ body {
   font-size: 1.1em;
   line-height: 1.7;
   margin-bottom: 16px;
-  max-width: 90%;
+  max-width: 800px; /* Alterado de 90% */
 }
 
 .main-content ol {
@@ -145,7 +142,7 @@ body {
 
 /* --- Componente: Imagem com Legenda --- */
 .image-container {
-  max-width: 90%;
+  max-width: 800px; /* Alterado de 90% */
   margin: 24px 0;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
@@ -166,7 +163,7 @@ body {
 }
 
 .caption-box {
-  background-color: #0b0f19; /* Fundo azul-escuro/preto */
+  background-color: #0b0f19;
   color: #ffffff;
   padding: 16px;
   display: flex;
@@ -176,15 +173,16 @@ body {
 }
 
 /* --- Componente: Caixa de Nota --- */
+/* **MUDANÇA**: max-width e margin removidos/alterados */
 .note-box {
   background-color: #fff5f0;
   border-left: 5px solid #ff5722;
   padding: 20px;
-  margin: 24px 0;
+  margin: 0; /* Removida margem superior/inferior */
   font-size: 1.05em;
   line-height: 1.6;
   border-radius: 0 4px 4px 0;
-  max-width: 90%;
+  /* max-width: 90%; */ /* Removido */
 }
 
 .note-box strong {
@@ -199,10 +197,9 @@ body {
   gap: 32px;
 }
 
+/* **MUDANÇA**: Corrigido o flex para o layout funcionar */
 .content-panel {
-  /* Alterado para ocupar 90% da largura do content-wrapper, sem crescer ou encolher. */
-  /* ATENÇÃO: Isso pode causar overflow horizontal se a largura total do content-wrapper não for suficiente para 90% do content-panel + 320px do summary-sidebar + 32px de gap. */
-  flex: 0 0 90%;
+  flex: 1; /* Ocupa o espaço disponível */
   min-width: 0;
 }
 
@@ -233,7 +230,7 @@ body {
 .summary-steps {
   list-style: none;
   margin-bottom: 24px;
-  flex: 1; /* Ocupa espaço para empurrar navegação (que não existe mais) */
+  flex: 1; /* Isso empurra o container da nota para baixo */
 }
 
 .summary-steps li {
@@ -248,26 +245,25 @@ body {
 }
 
 .summary-steps li:hover {
-  background-color: #eef7ff; /* <- NOVO: Azul claro da imagem */
+  background-color: #eef7ff;
 }
 
-/* --- **MUDANÇA**: Estilo do Item Ativo (Resumo) --- */
 .summary-steps li.active {
-  background-color: #eef7ff; /* <- NOVO: Azul claro da imagem */
-  color: #003366; /* <- NOVO: Azul escuro (texto) */
+  background-color: #eef7ff;
+  color: #003366;
   font-weight: 700;
-  border-left: 4px solid #003366; /* <- NOVO: Azul escuro (borda) */
+  border-left: 4px solid #003366;
 }
 
-/* --- **MUDANÇA**: Estilos da Navegação (Botões) --- */
+/* --- Estilos da Navegação (Botões) --- */
 .summary-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-top: 20px;
-  margin-top: 32px; /* <- NOVO: Posição abaixo do conteúdo */
+  margin-top: 32px;
   border-top: 1px solid #e0e0e0;
-  max-width: 90%; /* Alinha com as imagens */
+  max-width: 800px; /* Alterado de 90% */
 }
 
 .summary-nav span {
@@ -296,14 +292,14 @@ body {
 
 /* Botão "Próximo" (Destaque) */
 .summary-nav button:last-child {
-  background-color: #0b0f19; /* <- NOVO: Azul-escuro/preto da imagem */
+  background-color: #0b0f19;
   color: #ffffff;
-  border-color: #0b0f19; /* <- NOVO: Azul-escuro/preto da imagem */
+  border-color: #0b0f19;
 }
 
 .summary-nav button:last-child:hover {
-  background-color: #2a2f45; /* <- NOVO: Azul mais claro */
-  border-color: #2a2f45; /* <- NOVO: Azul mais claro */
+  background-color: #2a2f45;
+  border-color: #2a2f45;
 }
 
 /* Botões Desabilitados (Como o "Anterior" no print) */
@@ -318,4 +314,11 @@ body {
 .tutorial-image {
   width: 100%;
   display: block;
+}
+
+/* **NOVO**: Container para a nota no final da sidebar */
+.summary-note-container {
+  margin-top: auto; /* Cola este container no fundo do flexbox */
+  padding-top: 24px; /* Espaço entre a lista e a nota */
+  border-top: 1px solid #e0e0e0; /* Linha divisória */
 }

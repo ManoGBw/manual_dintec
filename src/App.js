@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./styles.css";
 
 // --- Componente 1: Imagem com Legenda ---
-// (Sem alterações)
 function ImageWithCaption({ placeholderText, caption, imageNumber }) {
   return (
     <div className="image-container">
@@ -29,25 +28,26 @@ const stepsGerarVenda = [
   {
     icon: "📝",
     title: "1. Cadastro do Cliente",
-    description: "Certifique-se de que...",
-    // CORRIGIDO: Sem "public/" e com o nome novo (sem espaços)
-    imgPlaceholder: "/images/venda par1.png",
+    description:
+      "Certifique-se de que o cadastro do cliente na venda esteja completo. É essencial que contenha CPF ou CNPJ e o endereço completo, especialmente o CEP.",
+    imgPlaceholder: "/images/venda-par1.png", // Recomendei renomear sem espaços
     caption: "Tela de cadastro do cliente com CPF/CNPJ e endereço completo",
     note: "O cadastro incompleto pode gerar erros na emissão do boleto.",
   },
   {
     icon: "🛒",
     title: "2. Lançamento dos Produtos",
-    description: "Insira os produtos...",
-    imgPlaceholder: "./images/venda par2.png",
+    description: "Insira os produtos ou serviços na venda como de costume.",
+    imgPlaceholder: "/images/venda-par2.png", // Recomendei renomear sem espaços
     caption: "Interface de lançamento de produtos na venda",
     note: null,
   },
   {
     icon: "💳",
     title: "3. Finalização e Forma de Pagamento",
-    description: 'Clique em "FINALIZA" (ou F12)...',
-    imgPlaceholder: "/images/venda par3.png",
+    description:
+      'Clique em "FINALIZA" (ou F12). Na tela de Formas de Pagamento, selecione a opção "A PRAZO" e defina a situação como "PRESTAÇÃO-BO".',
+    imgPlaceholder: "/images/venda-par3.png", // Recomendei renomear sem espaços
     caption:
       'Seleção da forma de pagamento "A PRAZO" e situação "PRESTAÇÃO-BO"',
     note: null,
@@ -55,16 +55,17 @@ const stepsGerarVenda = [
   {
     icon: "📄",
     title: "4. Confirmação e Impressão",
-    description: 'Na tela "GERAR BOLETOS", clique em "OK"...',
-    imgPlaceholder: "/images/venda par4.png",
+    description:
+      'Na tela "GERAR BOLETOS", clique em "OK". Você poderá escolher entre "Sim" para gerar o PDF imediatamente ou "Não" para apenas registrar o boleto no sistema e enviá-lo depois.',
+    imgPlaceholder: "/images/venda-par4.png", // Recomendei renomear sem espaços
     caption: "Tela de confirmação para geração de boletos",
     note: "Importante: Após gerar o boleto, é fundamental criar e enviar o arquivo de remessa ao banco.",
   },
 ];
 
 // --- Componente 3: Resumo Lateral ---
-// **MUDANÇA**: Botões de navegação removidos daqui
-function SummarySidebar({ steps, currentStep, setCurrentStep }) {
+// **MUDANÇA**: Agora aceita 'activeNote' e renderiza o NoteBox
+function SummarySidebar({ steps, currentStep, setCurrentStep, activeNote }) {
   return (
     <aside className="summary-sidebar">
       <h3>Resumo da Rotina</h3>
@@ -76,13 +77,15 @@ function SummarySidebar({ steps, currentStep, setCurrentStep }) {
             className={index === currentStep ? "active" : ""}
             onClick={() => setCurrentStep(index)}
           >
-            {/* Título sem o ícone para um resumo mais limpo */}
             <span>{step.title}</span>
           </li>
         ))}
       </ul>
 
-      {/* A NAVEGAÇÃO NÃO ESTÁ MAIS AQUI */}
+      {/* **NOVO**: Container da nota adicionado ao final */}
+      <div className="summary-note-container">
+        {activeNote && <NoteBox>{activeNote}</NoteBox>}
+      </div>
     </aside>
   );
 }
@@ -128,11 +131,7 @@ function MainContent({ activeTopic }) {
             </p>
 
             <div className="carousel-container">
-              <h2>
-                {/* O ícone 📖 da imagem é um emoji, mas parece ser uma imagem customizada.
-                    Usando um emoji padrão por enquanto. */}
-                📖 {step.title}
-              </h2>
+              <h2>📖 {step.title}</h2>
               <p>{step.description}</p>
 
               <ImageWithCaption
@@ -141,10 +140,10 @@ function MainContent({ activeTopic }) {
                 imageNumber={currentStep + 1}
               />
 
-              {step.note && <NoteBox>{step.note}</NoteBox>}
+              {/* **MUDANÇA**: A linha do NoteBox foi REMOVIDA daqui */}
             </div>
 
-            {/* **MUDANÇA**: Barra de navegação movida para cá */}
+            {/* A Barra de navegação continua aqui em baixo */}
             <div className="summary-nav">
               <button onClick={handlePrev} disabled={currentStep === 0}>
                 &larr; Anterior
@@ -190,11 +189,12 @@ function MainContent({ activeTopic }) {
         <div className="content-panel">{renderTopicContent(activeTopic)}</div>
 
         {activeTopic === "gerar-venda" && (
-          // **MUDANÇA**: Props de navegação removidas
+          // **MUDANÇA**: Passando a nota do passo atual para o SummarySidebar
           <SummarySidebar
             steps={stepsGerarVenda}
             currentStep={currentStep}
             setCurrentStep={setCurrentStep}
+            activeNote={stepsGerarVenda[currentStep].note}
           />
         )}
       </div>
