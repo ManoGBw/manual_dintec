@@ -22,7 +22,7 @@ body {
 /* --- Estilos da Sidebar (Menu Esquerdo) --- */
 .sidebar {
   width: 280px;
-  background-color: #0b0f19; /* Fundo azul-escuro/preto */
+  background-color: #0b0f19;
   color: #ffffff;
   height: 100%;
   overflow-y: auto;
@@ -116,8 +116,9 @@ body {
   border-bottom: 2px solid #e0e0e0;
 }
 
+/* **MUDANÇA**: Fonte menor */
 .main-content h2 {
-  font-size: 1.6em;
+  font-size: 1.4em; /* Era 1.6em */
   color: #0b0f19;
   margin-top: 32px;
   margin-bottom: 12px;
@@ -126,23 +127,25 @@ body {
   gap: 12px;
 }
 
+/* **MUDANÇA**: Fonte menor e max-width removido */
 .main-content p {
-  font-size: 1.1em;
+  font-size: 1em; /* Era 1.05em */
   line-height: 1.7;
   margin-bottom: 16px;
-  max-width: 800px; /* Alterado de 90% */
+  /* max-width removido para ser mais largo */
 }
 
 .main-content ol {
-  font-size: 1.1em;
+  font-size: 1em; /* Era 1.05em */
   line-height: 1.7;
   padding-left: 40px;
   margin-bottom: 16px;
 }
 
 /* --- Componente: Imagem com Legenda --- */
+/* **MUDANÇA**: max-width removido */
 .image-container {
-  max-width: 800px; /* Alterado de 90% */
+  /* max-width removido para ser mais largo */
   margin: 24px 0;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
@@ -173,16 +176,16 @@ body {
 }
 
 /* --- Componente: Caixa de Nota --- */
-/* **MUDANÇA**: max-width e margin removidos/alterados */
+/* **MUDANÇA**: Fonte menor, margin e max-width removidos */
 .note-box {
   background-color: #fff5f0;
   border-left: 5px solid #ff5722;
   padding: 20px;
-  margin: 0; /* Removida margem superior/inferior */
-  font-size: 1.05em;
+  margin: 0;
+  font-size: 0.95em; /* Era 1.05em */
   line-height: 1.6;
   border-radius: 0 4px 4px 0;
-  /* max-width: 90%; */ /* Removido */
+  /* max-width removido */
 }
 
 .note-box strong {
@@ -192,34 +195,36 @@ body {
 }
 
 /* --- Layout de 2 Colunas e Resumo --- */
+/* **MUDANÇA**: Gap ajustado */
 .content-wrapper {
   display: flex;
-  gap: 32px;
+  gap: 40px; /* Era 32px, mais espaço */
 }
 
-/* **MUDANÇA**: Corrigido o flex para o layout funcionar */
 .content-panel {
-  flex: 1; /* Ocupa o espaço disponível */
+  flex: 1;
   min-width: 0;
 }
 
 /* --- Estilos do Resumo --- */
+/* **MUDANÇA**: Largura e fonte ajustadas */
 .summary-sidebar {
   flex-shrink: 0;
-  width: 320px;
+  width: 300px; /* Era 320px */
   background-color: #f7f9fc;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
-  padding: 24px;
+  padding: 20px;
   position: sticky;
   top: 40px;
   display: flex;
   flex-direction: column;
   min-height: 400px;
+  font-size: 0.95em; /* Fonte menor para todo o card */
 }
 
 .summary-sidebar h3 {
-  font-size: 1.2em;
+  font-size: 1.1em;
   color: #0b0f19;
   padding-bottom: 16px;
   margin-bottom: 16px;
@@ -230,13 +235,15 @@ body {
 .summary-steps {
   list-style: none;
   margin-bottom: 24px;
-  flex: 1; /* Isso empurra o container da nota para baixo */
+  /* **MUDANÇA**: flex: 1 removido para parar de empurrar a nota */
 }
 
+/* **MUDANÇA**: Fonte menor */
 .summary-steps li {
   padding: 12px 16px;
   border-radius: 6px;
-  font-weight: 500;
+  font-weight: 400;
+  font-size: 1em; /* Relativo ao 0.95em do pai */
   color: #333;
   margin-bottom: 8px;
   cursor: pointer;
@@ -251,11 +258,12 @@ body {
 .summary-steps li.active {
   background-color: #eef7ff;
   color: #003366;
-  font-weight: 700;
+  font-weight: 600;
   border-left: 4px solid #003366;
 }
 
 /* --- Estilos da Navegação (Botões) --- */
+/* **MUDANÇA**: max-width removido */
 .summary-nav {
   display: flex;
   justify-content: space-between;
@@ -263,7 +271,7 @@ body {
   padding-top: 20px;
   margin-top: 32px;
   border-top: 1px solid #e0e0e0;
-  max-width: 800px; /* Alterado de 90% */
+  /* max-width removido */
 }
 
 .summary-nav span {
@@ -302,7 +310,7 @@ body {
   border-color: #2a2f45;
 }
 
-/* Botões Desabilitados (Como o "Anterior" no print) */
+/* Botões Desabilitados */
 .summary-nav button:disabled,
 .summary-nav button:last-child:disabled {
   background-color: #f0f4f8;
@@ -316,9 +324,13 @@ body {
   display: block;
 }
 
-/* **NOVO**: Container para a nota no final da sidebar */
+/* **MUDANÇA**: Posição da nota na sidebar */
 .summary-note-container {
-  margin-top: auto; /* Cola este container no fundo do flexbox */
-  padding-top: 24px; /* Espaço entre a lista e a nota */
-  border-top: 1px solid #e0e0e0; /* Linha divisória */
+  /* Esta margem 'auto' foi removida para que a nota suba */
+  /* margin-top: auto; */
+  padding-top: 24px;
+  border-top: 1px solid #e0e0e0;
+
+  /* Este é o "5% de espaçamento" que você pediu */
+  margin-top: 24px;
 }
