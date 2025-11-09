@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./styles.css";
+// 1. Importa o JSON com o conteúdo
+import data from "./conteudo.json";
 
 // --- Componente 1: Imagem com Legenda ---
 function ImageWithCaption({ placeholderText, caption, imageNumber }) {
@@ -24,47 +26,10 @@ function NoteBox({ children }) {
 }
 
 // --- DADOS PARA O CARROSSEL ---
-const stepsGerarVenda = [
-  {
-    icon: "📝",
-    title: "1. Cadastro do Cliente",
-    description:
-      "Certifique-se de que o cadastro do cliente na venda esteja completo. É essencial que contenha CPF ou CNPJ e o endereço completo, especialmente o CEP.",
-    imgPlaceholder: "/images/venda-par1.png", // Recomendei renomear sem espaços
-    caption: "Tela de cadastro do cliente com CPF/CNPJ e endereço completo",
-    note: "O cadastro incompleto pode gerar erros na emissão do boleto.",
-  },
-  {
-    icon: "🛒",
-    title: "2. Lançamento dos Produtos",
-    description: "Insira os produtos ou serviços na venda como de costume.",
-    imgPlaceholder: "/images/venda-par2.png", // Recomendei renomear sem espaços
-    caption: "Interface de lançamento de produtos na venda",
-    note: null,
-  },
-  {
-    icon: "💳",
-    title: "3. Finalização e Forma de Pagamento",
-    description:
-      'Clique em "FINALIZA" (ou F12). Na tela de Formas de Pagamento, selecione a opção "A PRAZO" e defina a situação como "PRESTAÇÃO-BO".',
-    imgPlaceholder: "/images/venda-par3.png", // Recomendei renomear sem espaços
-    caption:
-      'Seleção da forma de pagamento "A PRAZO" e situação "PRESTAÇÃO-BO"',
-    note: null,
-  },
-  {
-    icon: "📄",
-    title: "4. Confirmação e Impressão",
-    description:
-      'Na tela "GERAR BOLETOS", clique em "OK". Você poderá escolher entre "Sim" para gerar o PDF imediatamente ou "Não" para apenas registrar o boleto no sistema e enviá-lo depois.',
-    imgPlaceholder: "/images/venda-par4.png", // Recomendei renomear sem espaços
-    caption: "Tela de confirmação para geração de boletos",
-    note: "Importante: Após gerar o boleto, é fundamental criar e enviar o arquivo de remessa ao banco.",
-  },
-];
+// (Isto foi removido, pois agora vem do JSON)
 
 // --- Componente 3: Resumo Lateral ---
-// **MUDANÇA**: Agora aceita 'activeNote' e renderiza o NoteBox
+// **MUDANÇA**: Aceita 'activeNote' e renderiza o NoteBox
 function SummarySidebar({ steps, currentStep, setCurrentStep, activeNote }) {
   return (
     <aside className="summary-sidebar">
@@ -77,12 +42,13 @@ function SummarySidebar({ steps, currentStep, setCurrentStep, activeNote }) {
             className={index === currentStep ? "active" : ""}
             onClick={() => setCurrentStep(index)}
           >
+            {/* Título sem o ícone para um resumo mais limpo */}
             <span>{step.title}</span>
           </li>
         ))}
       </ul>
 
-      {/* **NOVO**: Container da nota adicionado ao final */}
+      {/* **MUDANÇA**: Container da nota movido de volta para cá */}
       <div className="summary-note-container">
         {activeNote && <NoteBox>{activeNote}</NoteBox>}
       </div>
@@ -94,8 +60,12 @@ function SummarySidebar({ steps, currentStep, setCurrentStep, activeNote }) {
 function MainContent({ activeTopic }) {
   const [currentStep, setCurrentStep] = useState(0);
 
+  // **MUDANÇA**: Busca a rotina ativa do JSON
+  // Encontra a rotina (ex: 'gerar-venda') dentro do JSON importado
+  const rotinaAtiva = data.manualDintec.boletos[activeTopic];
+
   const handleNext = () => {
-    if (currentStep < stepsGerarVenda.length - 1) {
+    if (rotinaAtiva && currentStep < rotinaAtiva.steps.length - 1) {
       setCurrentStep(currentStep + 1);
     }
   };
@@ -106,81 +76,67 @@ function MainContent({ activeTopic }) {
     }
   };
 
+  // Reseta o passo ao mudar de tópico
+  React.useEffect(() => {
+    setCurrentStep(0);
+  }, [activeTopic]);
+
   const renderTopicContent = (topic) => {
-    switch (topic) {
-      case "introducao":
-        return (
-          <>
-            <h1>Manual de Utilização de Boletos</h1>
-            <p>
-              Bem-vindo ao manual de ajuda do sistema Dintec. Selecione um
-              tópico no menu ao lado para começar.
-            </p>
-          </>
-        );
-
-      case "gerar-venda":
-        const step = stepsGerarVenda[currentStep];
-
-        return (
-          <>
-            <h1>Gerar Boleto pela Venda</h1>
-            <p>
-              Processo completo para gerar um boleto diretamente de uma venda no
-              Dintec.
-            </p>
-
-            <div className="carousel-container">
-              <h2>📖 {step.title}</h2>
-              <p>{step.description}</p>
-
-              <ImageWithCaption
-                placeholderText={step.imgPlaceholder}
-                caption={step.caption}
-                imageNumber={currentStep + 1}
-              />
-
-              {/* **MUDANÇA**: A linha do NoteBox foi REMOVIDA daqui */}
-            </div>
-
-            {/* A Barra de navegação continua aqui em baixo */}
-            <div className="summary-nav">
-              <button onClick={handlePrev} disabled={currentStep === 0}>
-                &larr; Anterior
-              </button>
-              <span>
-                Passo {currentStep + 1} de {stepsGerarVenda.length}
-              </span>
-              <button
-                onClick={handleNext}
-                disabled={currentStep === stepsGerarVenda.length - 1}
-              >
-                Próximo &rarr;
-              </button>
-            </div>
-          </>
-        );
-
-      // (Restante dos 'cases'...)
-      case "gerar-nfe":
-        return (
-          <>
-            <h1>Gerar Boleto pela NFe</h1>
-            <p>Este método garante que o número da NFe apareça no boleto...</p>
-          </>
-        );
-
-      default:
-        return (
-          <>
-            <h1>{activeTopic.replace(/-/g, " ")}</h1>
-            <p>
-              Conteúdo para <strong>{activeTopic}</strong> ainda não
-              implementado.
-            </p>
-          </>
-        );
+    // Se a rotina não for encontrada no JSON, exibe um padrão
+    if (!rotinaAtiva) {
+      return (
+        <>
+          <h1>{topic.replace(/-/g, " ")}</h1>
+          <p>
+            Conteúdo para <strong>{topic}</strong> ainda não implementado.
+          </p>
+        </>
+      );
     }
+
+    // Pega o passo atual da rotina ativa
+    const step = rotinaAtiva.steps[currentStep];
+
+    return (
+      <>
+        <h1>{rotinaAtiva.title}</h1>
+        <p>{rotinaAtiva.description}</p>
+
+        <div className="carousel-container">
+          <h2>📖 {step.title}</h2>
+          {/* Renderiza o conteúdo (que pode ter \n para quebras de linha) */}
+          {step.content.split("\n").map((line, index) => (
+            <p key={index}>{line}</p>
+          ))}
+
+          {step.image && (
+            <ImageWithCaption
+              placeholderText={step.image}
+              caption={step.caption}
+              imageNumber={currentStep + 1}
+            />
+          )}
+        </div>
+
+        {/* Barra de navegação */}
+        <div className="summary-nav">
+          <button onClick={handlePrev} disabled={currentStep === 0}>
+            &larr; Anterior
+          </button>
+          <span>
+            Passo {currentStep + 1} de {rotinaAtiva.steps.length}
+          </span>
+          <button
+            onClick={handleNext}
+            disabled={currentStep === rotinaAtiva.steps.length - 1}
+          >
+            Próximo &rarr;
+          </button>
+        </div>
+
+        {/* **MUDANÇA**: A nota foi removida daqui */}
+      </>
+    );
   };
 
   return (
@@ -188,13 +144,13 @@ function MainContent({ activeTopic }) {
       <div className="content-wrapper">
         <div className="content-panel">{renderTopicContent(activeTopic)}</div>
 
-        {activeTopic === "gerar-venda" && (
-          // **MUDANÇA**: Passando a nota do passo atual para o SummarySidebar
+        {/* Só mostra o resumo se a rotina ativa existir e tiver mais de 1 passo */}
+        {rotinaAtiva && rotinaAtiva.steps.length > 1 && (
           <SummarySidebar
-            steps={stepsGerarVenda}
+            steps={rotinaAtiva.steps}
             currentStep={currentStep}
             setCurrentStep={setCurrentStep}
-            activeNote={stepsGerarVenda[currentStep].note}
+            activeNote={rotinaAtiva.steps[currentStep].note}
           />
         )}
       </div>
@@ -308,17 +264,16 @@ function Sidebar({ activeTopic, setActiveTopic }) {
                     onClick={() => handleNavClick("introducao")}
                     className={isActive("introducao")}
                   >
-                    Introdução
+                    Requisitos para uso de Boletos no Sistema
                   </a>
                 </li>
-                <li className="submenu-title">Geração de Boletos</li>
                 <li>
                   <a
                     href="#"
                     onClick={() => handleNavClick("gerar-venda")}
                     className={isActive("gerar-venda")}
                   >
-                    Gerar pela Venda
+                    Gerar Boleto pela Venda
                   </a>
                 </li>
                 <li>
@@ -327,7 +282,7 @@ function Sidebar({ activeTopic, setActiveTopic }) {
                     onClick={() => handleNavClick("gerar-nfe")}
                     className={isActive("gerar-nfe")}
                   >
-                    Gerar pela NFe
+                    Gerar Boleto pela NFe
                   </a>
                 </li>
                 <li>

@@ -8,7 +8,7 @@
           {
             "id": 1,
             "title": "Introdução",
-            [cite_start]"content": "Este manual tem como objetivo guiar os usuários na utilização da funcionalidade de boletos bancários integrada ao sistema Dintec. [cite: 1118] [cite_start]A presente integração visa proporcionar um controle aprimorado das operações de cobrança e recebimento, otimizando processos financeiros e garantindo maior precisão nas transações. [cite: 1119] [cite_start]Ao longo deste documento, serão detalhadas as rotinas essenciais para a eficiente gestão dos boletos, desde sua emissão até os procedimentos de conciliação bancária e cancelamento, assegurando a conformidade e a segurança das informações. [cite: 1120]",
+            "content": "Este manual tem como objetivo guiar os usuários na utilização da funcionalidade de boletos bancários integrada ao sistema Dintec. A presente integração visa proporcionar um controle aprimorado das operações de cobrança e recebimento, otimizando processos financeiros e garantindo maior precisão nas transações. Ao longo deste documento, serão detalhadas as rotinas essenciais para a eficiente gestão dos boletos, desde sua emissão até os procedimentos de conciliação bancária e cancelamento, assegurando a conformidade e a segurança das informações.",
             "image": null,
             "caption": null,
             "note": null
@@ -16,21 +16,21 @@
         ]
       },
       "gerar-venda": {
-        "title": "2.1 Geração de Boleto por Venda Direta",
-        [cite_start]"description": "Para gerar um boleto diretamente de uma venda no Dintec, siga estes passos: [cite: 1124]",
+        "title": " Geração de Boleto por Venda Direta",
+        "description": "Para gerar um boleto diretamente de uma venda no Dintec, siga estes passos:",
         "steps": [
           {
             "id": 1,
             "title": "1. Cadastro do Cliente",
-            "content": "Certifique-se de que o cadastro do cliente na venda esteja completo. [cite_start]É essencial que contenha o CPF ou CNPJ e o endereço completo, especialmente o CEP. [cite: 1125, 1126]",
+            "content": "Certifique-se de que o cadastro do cliente na venda esteja completo. É essencial que contenha o CPF ou CNPJ e o endereço completo, especialmente o CEP.",
             "image": "/images/venda-par1.png",
             "caption": "Tela de cadastro do cliente",
-            "note": null
+            "note": "O cadastro incompleto pode gerar erros na emissão do boleto."
           },
           {
             "id": 2,
             "title": "2. Lançamento dos Produtos",
-            [cite_start]"content": "Insira os produtos ou serviços na venda como de costume. [cite: 1127]",
+            "content": "Insira os produtos ou serviços na venda como de costume.",
             "image": "/images/venda-par2.png",
             "caption": "Lançamento de produtos na venda",
             "note": null
@@ -38,7 +38,7 @@
           {
             "id": 3,
             "title": "3. Finalização da Venda",
-            [cite_start]"content": "Após lançar os produtos, selecione a opção \"FINALIZA\" ou pressione F12. [cite: 1128]",
+            "content": "Após lançar os produtos, selecione a opção \"FINALIZA\" ou pressione F12.",
             "image": "/images/venda-par3.png",
             "caption": "Finalizando a venda",
             "note": null
@@ -46,7 +46,7 @@
           {
             "id": 4,
             "title": "4. Configuração de Pagamento",
-            [cite_start]"content": "Na tela de finalização, escolha a opção \"A PRAZO\" e defina a situação como \"PRESTAÇÃO-BO\". [cite: 1129]",
+            "content": "Na tela de finalização, escolha a opção \"A PRAZO\" e defina a situação como \"PRESTAÇÃO-BO\".",
             "image": "/images/venda-par3.png",
             "caption": "Configuração da forma de pagamento",
             "note": null
@@ -54,75 +54,75 @@
           {
             "id": 5,
             "title": "5. Geração dos Boletos",
-            "content": "Com a venda finalizada, a tela \"GERAR BOLETOS\" será exibida. [cite_start]Clique em \"OK\" para que o sistema gere os números dos boletos. [cite: 1130, 1131]",
+            "content": "Com a venda finalizada, a tela \"GERAR BOLETOS\" será exibida. Clique em \"OK\" para que o sistema gere os números dos boletos.",
             "image": "/images/venda-par4.png",
-            [cite_start]"caption": "Tela GERAR BOLETOS [cite: 1132]",
+            "caption": "Tela GERAR BOLETOS",
             "note": null
           },
           {
             "id": 6,
             "title": "6. Opção de Impressão",
-            [cite_start]"content": "O sistema perguntará \"DESEJA IMPRIMIR BOLETOS?\" [cite: 1149, 1150] [cite_start]Selecione \"Sim\" para gerar o PDF dos boletos na tela, permitindo que você os direcione para impressão. [cite: 1151] Selecione \"Não\" para que os códigos dos boletos sejam gerados e registrados no sistema, mas sem exibi-los na tela. [cite_start]Esses boletos ainda poderão ser enviados ao cliente por WhatsApp ou e-mail. [cite: 1152, 1153]",
+            "content": "O sistema perguntará \"DESEJA IMPRIMIR BOLETOS?\" Selecione \"Sim\" para gerar o PDF dos boletos na tela, permitindo que você os direcione para impressão. Selecione \"Não\" para que os códigos dos boletos sejam gerados e registrados no sistema, mas sem exibi-los na tela. Esses boletos ainda poderão ser enviados ao cliente por WhatsApp ou e-mail.",
             "image": null,
             "caption": null,
-            "note": "Após seguir esses passos, o boleto estará gerado no sistema. [cite_start]Contudo, para que ele seja registrado e reconhecido pelo banco, é crucial que você realize o procedimento de geração de remessa e a envie à sua instituição financeira. [cite: 1154, 1155]"
+            "note": "Após seguir esses passos, o boleto estará gerado no sistema. Contudo, para que ele seja registrado e reconhecido pelo banco, é crucial que você realize o procedimento de geração de remessa e a envie à sua instituição financeira."
           }
         ]
       },
       "gerar-nfe": {
         "title": "2.2 Geração de Boleto por NFe",
-        [cite_start]"description": "Para gerar um boleto vinculado a uma Nota Fiscal Eletrônica (NFe), siga os passos abaixo: [cite: 1156]",
+        "description": "Para gerar um boleto vinculado a uma Nota Fiscal Eletrônica (NFe), siga os passos abaixo:",
         "steps": [
           {
             "id": 1,
             "title": "1. Pedido de Venda",
-            [cite_start]"content": "É fundamental que, inicialmente, exista um pedido de venda no sistema. [cite: 1157]",
-            "image": "/images/cupom-nota-1.png",
+            "content": "É fundamental que, inicialmente, exista um pedido de venda no sistema.",
+            "image": "/images/cupom nota 1.png",
             "caption": "Tela de Impressão de Cupom Fiscal",
             "note": null
           },
           {
             "id": 2,
             "title": "2. Geração da NFe",
-            [cite_start]"content": "A NFe deve ser gerada a partir desse pedido de venda. [cite: 1158]",
-            "image": "/images/cupom-nota-1.png",
-            [cite_start]"caption": "Botão Gerar NFe [cite: 1232]",
+            "content": "A NFe deve ser gerada a partir desse pedido de venda.",
+            "image": "/images/cupom nota 1.png",
+            "caption": "Botão Gerar NFe",
             "note": null
           },
           {
             "id": 3,
             "title": "3. Acesso ao Boleto",
-            [cite_start]"content": "Após a emissão da NFe, localize e clique no botão \"Boleto\". [cite: 1159]",
-            "image": "/images/nota-fiscal-1.png",
-            [cite_start]"caption": "Botão Boleto na tela da NFe [cite: 1298]",
+            "content": "Após a emissão da NFe, localize e clique no botão \"Boleto\".",
+            "image": "/images/nota fiscal 1.png",
+            "caption": "Botão Boleto na tela da NFe",
             "note": null
           },
           {
             "id": 4,
             "title": "4. Confirmação",
-            "content": "Ao clicar no botão \"Boleto\", a tela \"GERAR BOLETOS\" será aberta. [cite_start]Clique em \"OK\" para que o boleto referente a essa nota fiscal seja gerado. [cite: 1160, 1161]",
-            "image": "/images/nota-fiscal-2.png",
+            "content": "Ao clicar no botão \"Boleto\", a tela \"GERAR BOLETOS\" será aberta. Clique em \"OK\" para que o boleto referente a essa nota fiscal seja gerado.",
+            "image": "/images/nota fiscal 2.png",
             "caption": "Confirmando a geração do boleto",
             "note": null
           },
           {
             "id": 5,
             "title": "5. Boleto Identificado",
-            [cite_start]"content": "O principal diferencial de gerar o boleto a partir de uma NFe é que o boleto incluirá automaticamente uma observação indicando a qual nota fiscal ele se refere, proporcionando maior clareza e controle na identificação do pagamento. [cite: 1304]",
-            "image": "/images/impressao-boleto-1.png",
-            [cite_start]"caption": "Boleto gerado com o número da NFe [cite: 1341]",
+            "content": "O principal diferencial de gerar o boleto a partir de uma NFe é que o boleto incluirá automaticamente uma observação indicando a qual nota fiscal ele se refere, proporcionando maior clareza e controle na identificação do pagamento.",
+            "image": "/images/impressao boleto 1.png",
+            "caption": "Boleto gerado com o número da NFe",
             "note": null
           }
         ]
       },
       "recuperacao": {
         "title": "2.3 Recuperação de Geração de Boletos",
-        [cite_start]"description": "Se você estava gerando boletos a partir de uma venda e fechou acidentalmente a tela \"GERAR BOLETOS\" antes de concluir o processo, você pode retomar a geração seguindo estes passos: [cite: 1356, 1357, 1358]",
+        "description": "Se você estava gerando boletos a partir de uma venda e fechou acidentalmente a tela \"GERAR BOLETOS\" antes de concluir o processo, você pode retomar a geração seguindo estes passos:",
         "steps": [
           {
             "id": 1,
             "title": "1. Acesse CUPOM/NOTA",
-            [cite_start]"content": "Acesse o menu principal e selecione \"CUPOM/NOTA\". [cite: 1359]",
+            "content": "Acesse o menu principal e selecione \"CUPOM/NOTA\".",
             "image": null,
             "caption": null,
             "note": null
@@ -130,7 +130,7 @@
           {
             "id": 2,
             "title": "2. Localize a Venda",
-            [cite_start]"content": "Localize e selecione a venda desejada. [cite: 1360]",
+            "content": "Localize e selecione a venda desejada.",
             "image": null,
             "caption": null,
             "note": null
@@ -138,7 +138,7 @@
           {
             "id": 3,
             "title": "3. Abrir Venda",
-            [cite_start]"content": "Clique em \"Op. Venda\" e, em seguida, selecione \"Abrir Venda\". [cite: 1361]",
+            "content": "Clique em \"Op. Venda\" e, em seguida, selecione \"Abrir Venda\".",
             "image": null,
             "caption": null,
             "note": null
@@ -146,7 +146,7 @@
           {
             "id": 4,
             "title": "4. Gerar Boletos",
-            "content": "Dentro da tela da venda, vá em \"Opções\" e clique em \"Gerar Boletos\". [cite_start]Isso reabrirá a tela de geração de boletos, permitindo que você prossiga com a emissão. [cite: 1362, 1363]",
+            "content": "Dentro da tela da venda, vá em \"Opções\" e clique em \"Gerar Boletos\". Isso reabrirá a tela de geração de boletos, permitindo que você prossiga com a emissão.",
             "image": null,
             "caption": null,
             "note": null
@@ -155,34 +155,34 @@
       },
       "gestao-remessa-retorno": {
         "title": "3. Gestão de Remessa e Retorno",
-        [cite_start]"description": "Gestão de Remessa e Retorno de Boletos (Comunicação com o Banco) [cite: 1364]",
+        "description": "Gestão de Remessa e Retorno de Boletos (Comunicação com o Banco)",
         "steps": [
           {
             "id": 1,
             "title": "3.1. Geração de Arquivo de Remessa",
-            [cite_start]"content": "O arquivo de remessa é essencial para enviar os dados dos boletos gerados no Dintec para o seu banco... [cite: 1366] Para gerar esse arquivo, siga os passos abaixo:\n1. [cite_start]Acesse o menu principal: Utilitários. [cite: 1368]\n2. [cite_start]Navegue até: Boletos. [cite: 1369]\n3. [cite_start]Selecione a opção: Remessa de Arquivos. [cite: 1370]\n4. [cite_start]Na tela que se abrir, clique no botão \"Gerar Remessa\". [cite: 1371]",
+            "content": "O arquivo de remessa é essencial para enviar os dados dos boletos gerados no Dintec para o seu banco... Para gerar esse arquivo, siga os passos abaixo:\n1. Acesse o menu principal: Utilitários.\n2. Navegue até: Boletos.\n3. Selecione a opção: Remessa de Arquivos.\n4. Na tela que se abrir, clique no botão \"Gerar Remessa\".",
             "image": null,
             "caption": null,
-            "note": "Importante: Não altere as datas exibidas. [cite_start]O sistema preenche esses campos automaticamente... [cite: 1372] [cite_start]O sistema irá retornar um aviso na tela para informar onde o arquivo de remessa foi salvo. [cite: 1373]"
+            "note": "Importante: Não altere as datas exibidas. O sistema preenche esses campos automaticamente... O sistema irá retornar um aviso na tela para informar onde o arquivo de remessa foi salvo."
           },
           {
             "id": 2,
             "title": "3.2. Processamento de Arquivo de Retorno",
-            [cite_start]"content": "O arquivo de retorno é crucial para atualizar o Dintec com as informações processadas pelo banco... [cite: 1375, 1376]\n1. [cite_start]Baixar o Arquivo de Retorno... [cite: 1377, 1378]\n2. [cite_start]Acessar o Dintec... Utilitários. [cite: 1379]\n3. [cite_start]Continue para: Boletos. [cite: 1380]\n4. [cite_start]Selecione a opção: Retorno de Arquivos. [cite: 1381]\n5. [cite_start]Configurar Retorno: Selecionar o Banco e Preencher a Conta. [cite: 1382, 1383, 1384]\n6. [cite_start]Carregar o Arquivo: Clique no botão \"Arquivo\"... e em \"Ler Arquivo\". [cite: 1385, 1386, 1387]\n7. [cite_start]Quitar Boletos: ...clique no botão \"TODOS\". [cite: 1388, 1389]",
-            "image": " (imagem da pagina 7) ",
-            [cite_start]"caption": "Tela de retorno de boletos [cite: 1390]",
+            "content": "O arquivo de retorno é crucial para atualizar o Dintec com as informações processadas pelo banco...\n1. Baixar o Arquivo de Retorno...\n2. Acessar o Dintec... Utilitários.\n3. Continue para: Boletos.\n4. Selecione a opção: Retorno de Arquivos.\n5. Configurar Retorno: Selecionar o Banco e Preencher a Conta.\n6. Carregar o Arquivo: Clique no botão \"Arquivo\"... e em \"Ler Arquivo\".\n7. Quitar Boletos: ...clique no botão \"TODOS\".",
+            "image": null,
+            "caption": "Tela de retorno de boletos",
             "note": null
           }
         ]
       },
       "alteracoes": {
         "title": "4. Solicitação de Alterações em Boletos",
-        [cite_start]"description": "Procedimentos para solicitar alterações em boletos já emitidos. [cite: 1411]",
+        "description": "Procedimentos para solicitar alterações em boletos já emitidos.",
         "steps": [
           {
             "id": 1,
             "title": "4.1. Alteração de Data de Vencimento",
-            [cite_start]"content": "Procedimento para solicitar a prorrogação do vencimento. [cite: 1413] [cite_start]Considerações importantes: Juros, multas, comunicação com o cliente. [cite: 1414]",
+            "content": "Procedimento para solicitar a prorrogação do vencimento. Considerações importantes: Juros, multas, comunicação com o cliente.",
             "image": null,
             "caption": null,
             "note": null
@@ -190,7 +190,7 @@
           {
             "id": 2,
             "title": "4.2. Solicitação de Baixa de Boleto",
-            [cite_start]"content": "Quando e como solicitar a baixa manual de um boleto (ex: cliente pagou por outro meio, erro na emissão). [cite: 1416] [cite_start]Impacto no controle financeiro. [cite: 1417]",
+            "content": "Quando e como solicitar a baixa manual de um boleto (ex: cliente pagou por outro meio, erro na emissão). Impacto no controle financeiro.",
             "image": null,
             "caption": null,
             "note": null
@@ -199,13 +199,13 @@
       },
       "reimpressao": {
         "title": "5. Reimpressão de Boletos",
-        [cite_start]"description": "Como localizar e reimprimir boletos já emitidos. [cite: 1418]",
+        "description": "Como localizar e reimprimir boletos já emitidos.",
         "steps": [
           {
             "id": 1,
             "title": "Localização e Reimpressão",
-            [cite_start]"content": "Como Localizar Boletos Emitidos:\n• Localizar por cliente [cite: 1420][cite_start]\n• Localizar pelo número do boleto [cite: 1421][cite_start]\n• Localizar pela data de vencimento [cite: 1422][cite_start]\n• Localizar pela data de envio da remessa [cite: 1423][cite_start]\n\nPasso a Passo para Reimpressão: Acesse a tela \"Consulta Cliente\". [cite: 1425, 1426]",
-            "image": "/images/consulta-cliente-1.png",
+            "content": "Como Localizar Boletos Emitidos:\n• Localizar por cliente\n• Localizar pelo número do boleto\n• Localizar pela data de vencimento\n• Localizar pela data de envio da remessa\n\nPasso a Passo para Reimpressão: Acesse a tela \"Consulta Cliente\".",
+            "image": "/images/consulta cliente 1.png",
             "caption": "Tela de Consulta Cliente",
             "note": null
           }
@@ -213,45 +213,45 @@
       },
       "cancelamento": {
         "title": "6. Cancelamento de Vendas",
-        [cite_start]"description": "Cancelamento de Vendas com Boletos Associados [cite: 1427]",
+        "description": "Cancelamento de Vendas com Boletos Associados",
         "steps": [
           {
             "id": 1,
             "title": "Procedimento de Cancelamento",
-            [cite_start]"content": "Cenários para Cancelamento: Venda que não se concretizou, erro de lançamento, etc. [cite: 1429] [cite_start]Procedimento Detalhado: Como o cancelamento da venda impacta o boleto (baixa automática, necessidade de baixa manual, etc.). [cite: 1430]",
+            "content": "Cenários para Cancelamento: Venda que não se concretizou, erro de lançamento, etc. Procedimento Detalhado: Como o cancelamento da venda impacta o boleto (baixa automática, necessidade de baixa manual, etc.).",
             "image": null,
             "caption": null,
-            [cite_start]"note": "Orientações ao Usuário: Mensagens de alerta, comunicação com o cliente sobre o boleto cancelado. [cite: 1431]"
+            "note": "Orientações ao Usuário: Mensagens de alerta, comunicação com o cliente sobre o boleto cancelado."
           }
         ]
       },
       "faq": {
         "title": "7. Perguntas Frequentes (FAQ)",
-        [cite_start]"description": "Perguntas Frequentes (FAQ) e Solução de Problemas [cite: 1432]",
+        "description": "Perguntas Frequentes (FAQ) e Solução de Problemas",
         "steps": [
           {
             "id": 1,
             "title": "Como adicionar juros nos boletos?",
-            [cite_start]"content": "Para incluir juros no valor original de um boleto, siga os passos abaixo: [cite: 1434]\n1. [cite_start]Na tela de Pedido de Venda, finalize a operação através da opção \"FINALIZA\" ou pressionando F12. [cite: 1435]\n2. [cite_start]Na parte inferior da tela, localize os campos destinados a juros, que estão próximos à informação da data. [cite: 1436]\n3. [cite_start]Preencha o valor do acréscimo desejado nesses campos. [cite: 1437]",
-            "image": " (imagem da pagina 8) ",
+            "content": "Para incluir juros no valor original de um boleto, siga os passos abaixo:\n1. Na tela de Pedido de Venda, finalize a operação através da opção \"FINALIZA\" ou pressionando F12.\n2. Na parte inferior da tela, localize os campos destinados a juros, que estão próximos à informação da data.\n3. Preencha o valor do acréscimo desejado nesses campos.",
+            "image": null,
             "caption": "Campos de Juros na finalização da venda",
-            [cite_start]"note": "Exemplo: Se uma venda é de R$ 100,00 parcelada em 2 vezes e você informa um juro de R$ 5,00, o valor total da venda será ajustado para R$ 110,00. [cite: 1438] [cite_start]Cada boleto emitido terá um acréscimo de R$ 5,00 em seu valor nominal. [cite: 1439] [cite_start]É importante notar que este juro... não se refere a juros ou multas por atraso... [cite: 1455, 1456]"
+            "note": "Exemplo: Se uma venda é de R$ 100,00 parcelada em 2 vezes e você informa um juro de R$ 5,00, o valor total da venda será ajustado para R$ 110,00. Cada boleto emitido terá um acréscimo de R$ 5,00 em seu valor nominal. É importante notar que este juro... não se refere a juros ou multas por atraso..."
           },
           {
             "id": 2,
             "title": "Como alterar valor da Multa de vencimento ou da Mora diária?",
-            [cite_start]"content": "Os valores padrão do sistema Dintec para juros de vencimento são:\n• Multa: 2% [cite: 1459][cite_start]\n• Mora Diária: 0,1% (equivalente a 3% ao mês de mora) [cite: 1460]",
+            "content": "Os valores padrão do sistema Dintec para juros de vencimento são:\n• Multa: 2%\n• Mora Diária: 0,1% (equivalente a 3% ao mês de mora)",
             "image": null,
             "caption": null,
-            [cite_start]"note": "Caso necessite alterar esses percentuais padrão de multa de vencimento ou mora diária, é necessário entrar em contato com o suporte técnico do Dintec para realizar a configuração. [cite: 1461]"
+            "note": "Caso necessite alterar esses percentuais padrão de multa de vencimento ou mora diária, é necessário entrar em contato com o suporte técnico do Dintec para realizar a configuração."
           },
           {
             "id": 3,
             "title": "Como saber se o boleto irá a protesto?",
-            [cite_start]"content": " (Conteúdo da página 9 não fornecido no PDF) [cite: 1462]",
+            "content": "As regras de protesto são definidas na configuração inicial.",
             "image": null,
             "caption": null,
-            "note": null
+            "note": "Para confirmar ou alterar essa configuração, entre em contato com o suporte técnico do Dintec."
           }
         ]
       }
