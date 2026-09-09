@@ -169,7 +169,7 @@ function Sidebar({ activeTopic, setActiveTopic }) {
 //lista de topicos do menu
     <aside className="sidebar">
       <h2>Menu de Ajuda</h2>
-      
+
       <nav>
         <ul>
           <li>
@@ -292,6 +292,16 @@ function Sidebar({ activeTopic, setActiveTopic }) {
   );
 }
 
+function Header() {
+  return (
+    <header className="top-header">
+      <div className="header-search">
+        <input type="text" placeholder="Pesquisar..." />
+      </div>
+    </header>
+  );
+}
+
 //Componente Principal da Aplicação
 export default function App() {
   const [activeTopic, setActiveTopic] = useState("gerar-venda");
@@ -299,7 +309,10 @@ export default function App() {
   return (
     <div className="app-container">
       <Sidebar activeTopic={activeTopic} setActiveTopic={setActiveTopic} />
-      <MainContent activeTopic={activeTopic} />
+      <div className="content-area">
+        <Header />
+        <MainContent activeTopic={activeTopic} />
+      </div>
     </div>
   );
 }
