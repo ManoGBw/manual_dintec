@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./styles.css";
-// 1. Importa o JSON com o conteúdo
+//Importa o JSON
 import data from "./conteudo.json";
 
-// --- Componente 1: Imagem com Legenda ---
+//imagens com legendas do carrosel
 function ImageWithCaption({ placeholderText, caption, imageNumber }) {
   return (
     <div className="image-container">
@@ -16,7 +16,7 @@ function ImageWithCaption({ placeholderText, caption, imageNumber }) {
   );
 }
 
-// --- Componente 2: Caixa de Nota ---
+//Caixa de Nota - usar pra alertas fica em laranja
 function NoteBox({ children }) {
   return (
     <div className="note-box">
@@ -25,11 +25,9 @@ function NoteBox({ children }) {
   );
 }
 
-// --- DADOS PARA O CARROSSEL ---
-// (Isto foi removido, pois agora vem do JSON)
 
-// --- Componente 3: Resumo Lateral ---
-// **MUDANÇA**: Aceita 'activeNote' e renderiza o NoteBox
+
+//Resumo Lateral
 function SummarySidebar({ steps, currentStep, setCurrentStep, activeNote }) {
   return (
     <aside className="summary-sidebar">
@@ -42,13 +40,10 @@ function SummarySidebar({ steps, currentStep, setCurrentStep, activeNote }) {
             className={index === currentStep ? "active" : ""}
             onClick={() => setCurrentStep(index)}
           >
-            {/* Título sem o ícone para um resumo mais limpo */}
             <span>{step.title}</span>
           </li>
         ))}
       </ul>
-
-      {/* **MUDANÇA**: Container da nota movido de volta para cá */}
       <div className="summary-note-container">
         {activeNote && <NoteBox>{activeNote}</NoteBox>}
       </div>
@@ -56,12 +51,10 @@ function SummarySidebar({ steps, currentStep, setCurrentStep, activeNote }) {
   );
 }
 
-// --- Componente 4: Conteúdo Principal (Lado Direito) ---
+//Conteúdo Principal 
 function MainContent({ activeTopic }) {
   const [currentStep, setCurrentStep] = useState(0);
-
-  // **MUDANÇA**: Busca a rotina ativa do JSON
-  // Encontra a rotina (ex: 'gerar-venda') dentro do JSON importado
+//buscar rotinas ativas no JSON
   const rotinaAtiva = data.manualDintec.boletos[activeTopic];
 
   const handleNext = () => {
@@ -104,7 +97,6 @@ function MainContent({ activeTopic }) {
 
         <div className="carousel-container">
           <h2>📖 {step.title}</h2>
-          {/* Renderiza o conteúdo (que pode ter \n para quebras de linha) */}
           {step.content.split("\n").map((line, index) => (
             <p key={index}>{line}</p>
           ))}
@@ -118,7 +110,6 @@ function MainContent({ activeTopic }) {
           )}
         </div>
 
-        {/* Barra de navegação */}
         <div className="summary-nav">
           <button onClick={handlePrev} disabled={currentStep === 0}>
             &larr; Anterior
@@ -134,7 +125,6 @@ function MainContent({ activeTopic }) {
           </button>
         </div>
 
-        {/* **MUDANÇA**: A nota foi removida daqui */}
       </>
     );
   };
@@ -144,7 +134,6 @@ function MainContent({ activeTopic }) {
       <div className="content-wrapper">
         <div className="content-panel">{renderTopicContent(activeTopic)}</div>
 
-        {/* Só mostra o resumo se a rotina ativa existir e tiver mais de 1 passo */}
         {rotinaAtiva && rotinaAtiva.steps.length > 1 && (
           <SummarySidebar
             steps={rotinaAtiva.steps}
@@ -158,8 +147,7 @@ function MainContent({ activeTopic }) {
   );
 }
 
-// --- Componente 5: Barra Lateral (Lado Esquerdo) ---
-// (Sem alterações na lógica)
+//Barra Lateral
 function Sidebar({ activeTopic, setActiveTopic }) {
   const [isBoletoOpen, setIsBoletoOpen] = useState(true);
 
@@ -178,11 +166,12 @@ function Sidebar({ activeTopic, setActiveTopic }) {
   const isActive = (topic) => (activeTopic === topic ? "active" : "");
 
   return (
+//lista de topicos do menu
     <aside className="sidebar">
       <h2>Menu de Ajuda</h2>
+      
       <nav>
         <ul>
-          {/* (Links do menu...) */}
           <li>
             <a
               href="#"
@@ -303,8 +292,7 @@ function Sidebar({ activeTopic, setActiveTopic }) {
   );
 }
 
-// --- Componente Principal da Aplicação ---
-// (Sem alterações)
+//Componente Principal da Aplicação
 export default function App() {
   const [activeTopic, setActiveTopic] = useState("gerar-venda");
 
